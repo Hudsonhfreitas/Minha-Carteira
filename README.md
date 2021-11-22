@@ -1,7 +1,13 @@
 # Minha Carteira 🤑
 
-O app permite que você crie um controle financeiro pessoal adicionando suas entradas e saídas. É possível filtrar todas suas movimentações e gerar gráficos para uma melhor
-visualização.
+O app minha carteira permite que você gerencie melhor suas finanças te dando um maior controle de seus créditos e débitos.
+
+## Funcionalidades 🛠️
+
+- Adicionar entradas e saídas
+- Filtrar todas suas movimentações em meses
+- Gráficos para uma melhor melhor visualização
+- Tema dark e light
 
 ## Tecnologias usadas 🚀  
 
