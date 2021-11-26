@@ -6,8 +6,6 @@ import Dashboard from "./pages/Dashboard";
 import List from "./pages/List";
 import dark from "./styles/themes/dark";
 
-
-
 const App: React.FC = () => {
   return (
       <ThemeProvider theme={dark}>
