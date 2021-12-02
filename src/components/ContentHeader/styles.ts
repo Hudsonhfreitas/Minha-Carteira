@@ -13,12 +13,12 @@ export const Container = styled.div`
 
 export const TitleContainer = styled.div<ITitleContainerProps>`
     > h1 {
-        color: ${props => props.lineColor};
+        color: ${props => props.theme.color};
         &::after {
             content: '';
             display: block;
             width: 55px;
-            border-bottom: 10px solid ${props => props.theme.color.warning};
+            border-bottom: 10px solid ${props => props.lineColor};
         }
     }
 `;
