@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, MouseEventHandler} from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { v4 as uuid_v4 } from 'uuid';
 import {Container, Content, Filters} from './styles';
 import ContentHeader from '../../components/ContentHeader';
@@ -73,7 +73,7 @@ const List: React.FC = () => {
                 label: year,
             }
         })
-    }, []);
+    }, [pageData]);
 
 
     const handleFrequencyClick = (frequency: string) => {
