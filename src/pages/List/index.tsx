@@ -73,7 +73,7 @@ const List: React.FC = () => {
                 label: year,
             }
         })
-    }, [pageData]);
+    },[pageData]);
 
 
     const handleFrequencyClick = (frequency: string) => {
