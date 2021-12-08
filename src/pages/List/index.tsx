@@ -56,7 +56,9 @@ const List: React.FC = () => {
     const years = useMemo(() => {
         let uniqueYears: number[] = [];
 
-        pageData.data.forEach(item => {
+        const {data} = pageData
+
+        data.forEach(item => {
             const date = new Date(item.date)
             const year = date.getFullYear()
 
@@ -87,7 +89,9 @@ const List: React.FC = () => {
 
     useEffect(() => {
 
-        const filteredDate = pageData.data.filter( item => {
+        const {data} = pageData
+
+        const filteredDate = data.filter( item => {
 
             const date = new Date(item.date);
             const month = String(date.getMonth() + 1);
