@@ -29,19 +29,20 @@ const List: React.FC = () => {
 
     const {type} = useParams();
 
-    const title = useMemo(() => {
-        return type === 'entry-balance' ? {
-            titleColor: 'Entradas',
-            lineColor: '#F7931B'
-        } : {
-            titleColor: 'Saídas',
-            lineColor: '#E44C4E'
-        };
-    }, [type]);
-
-    const listData = useMemo(() => {
-        return type === 'entry-balance'? gains : expenses
-    }, [type]);
+    const pageData = useMemo(() => {
+        return type === 'entry-balance' ?
+        { 
+            title: 'Entradas',
+            lineColor: '#F7931B' ,
+            data: gains
+        }
+        : 
+        {
+            title: 'Saídas',
+            lineColor: '#E44C4E' ,
+            data: expenses
+        }
+    }, [type])
 
     const months = useMemo(() => {
         return listOfMonths.map((month, index) => {
@@ -55,7 +56,7 @@ const List: React.FC = () => {
     const years = useMemo(() => {
         let uniqueYears: number[] = [];
 
-        listData.forEach(item => {
+        pageData.data.forEach(item => {
             const date = new Date(item.date)
             const year = date.getFullYear()
 
@@ -70,7 +71,8 @@ const List: React.FC = () => {
                 label: year,
             }
         })
-    }, [listData]);
+    }, []);
+
 
     const handleFrequencyClick = (frequency: string) => {
         const alreadySelected = selectedFrequency.findIndex(item => item === frequency)
@@ -85,7 +87,7 @@ const List: React.FC = () => {
 
     useEffect(() => {
 
-        const filteredDate = listData.filter( item => {
+        const filteredDate = pageData.data.filter( item => {
 
             const date = new Date(item.date);
             const month = String(date.getMonth() + 1);
@@ -107,11 +109,11 @@ const List: React.FC = () => {
         })
 
         setData(formattedData)
-    }, [listData, monthSelected, yearSelected, data.length, selectedFrequency]);
+    }, [pageData, monthSelected, yearSelected, data.length, selectedFrequency]);
 
     return (
         <Container>
-            <ContentHeader title={title.titleColor} lineColor={title.lineColor}>
+            <ContentHeader title={pageData.title} lineColor={pageData.lineColor}>
                 <SelectInput options={months} onChange={(e) => setMonthSelected(e.target.value)} defaultValue={monthSelected}/>
                 <SelectInput options={years} onChange={(e) => setYearSelected(e.target.value)} defaultValue={yearSelected}/>
             </ContentHeader>
