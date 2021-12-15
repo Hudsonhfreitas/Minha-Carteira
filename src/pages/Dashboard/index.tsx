@@ -108,7 +108,7 @@ const Dashboard: React.FC = () => {
                 icon: sadImg
             }
         }
-        else if(totalBalance == 0) {
+        else if(totalBalance === 0) {
             return {
                 title: "Ufaa!",
                 description: "Neste mês, você gastou exatamente o que ganhou.",
