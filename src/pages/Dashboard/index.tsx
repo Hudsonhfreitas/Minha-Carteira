@@ -7,6 +7,7 @@ import MessageBox from '../../components/MessageBox';
 
 import happyImg from '../../assets/happy.svg';
 import sadImg from '../../assets/sad.svg';
+import grinning from '../../assets/grinning.svg';
 
 import { 
     Container,
@@ -98,6 +99,33 @@ const Dashboard: React.FC = () => {
         return totalGains - totalExpenses
     }, [totalGains, totalExpenses]);
 
+    const message = useMemo(() => {
+        if(totalBalance < 0) {
+            return {
+                title: "Que triste!",
+                description: "Neste mês, você gastou mais do que deveria.",
+                footerText:"Verifique seus gastos e tente cortar algumas coisas desnecesárias.",
+                icon: sadImg
+            }
+        }
+        else if(totalBalance == 0) {
+            return {
+                title: "Ufaa!",
+                description: "Neste mês, você gastou exatamente o que ganhou.",
+                footerText:"Tenha cuidado. No próximo mês tente poupar o seu dinheiro",
+                icon: grinning
+            }
+        }
+        else {
+            return {
+                title: "Muito bem!",
+                description: "Sua carteira está positiva!",
+                footerText: "Continue assim. Considere inverstir o seu saldo.",
+                icon: happyImg
+            }
+        }
+    }, [totalBalance])
+
     const handleMonthSelected = (month: string) => {
         try {
             const parseMonth = Number(month);
@@ -154,10 +182,10 @@ const Dashboard: React.FC = () => {
                     color= "#E44C4E"
                 />
                 <MessageBox 
-                    title="Muito bem!"
-                    description="Sua carteira está positiva!"
-                    footerText="Continue assim. Considere inverstir o seu saldo."
-                    icon={happyImg}
+                    title={message.title}
+                    description={message.description}
+                    footerText={message.footerText}
+                    icon={message.icon}
                 />
             </Content>
         </Container>
