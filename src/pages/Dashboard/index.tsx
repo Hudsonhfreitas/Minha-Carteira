@@ -50,13 +50,59 @@ const Dashboard: React.FC = () => {
                 label: year,
             }
         })
-    },[]);
+    }, []);
+
+    const totalExpenses = useMemo(() => {
+        let total: number = 0;
+
+        expenses.forEach(item => {
+            const date = new Date(item.date);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+
+            if(month === monthSelected && year === yearSelected) {
+                try {
+                    total += Number(item.amount)
+                }catch {
+                    throw new Error('Invalid amount! Amount must be number')
+                }
+            }
+        });
+
+        return total;
+
+    }, [monthSelected, yearSelected]);
+
+    const totalGains = useMemo(() => {
+        let total: number = 0;
+
+        gains.forEach(item => {
+            const date = new Date(item.date);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+
+            if(month === monthSelected && year === yearSelected) {
+                try {
+                    total += Number(item.amount)
+                }catch {
+                    throw new Error('Invalid amount! Amount must be number')
+                }
+            }
+        });
+
+        return total;
+
+    }, [monthSelected, yearSelected]);
+
+    const totalBalance = useMemo(() => {
+        return totalGains - totalExpenses
+    }, [totalGains, totalExpenses]);
 
     const handleMonthSelected = (month: string) => {
         try {
             const parseMonth = Number(month);
             setMonthSelected(parseMonth);
-        }catch(error) {
+        }catch {
             throw new Error('Invalid month value. Is accepted 0 - 24.')
         }
     }
@@ -65,7 +111,7 @@ const Dashboard: React.FC = () => {
         try {
             const parseYear = Number(year);
             setYearSelected(parseYear);
-        }catch(error) {
+        }catch {
             throw new Error('Invalid year value.')
         }
     }
@@ -88,21 +134,21 @@ const Dashboard: React.FC = () => {
             <Content>
                 <WalletBox
                     title="Saldo"
-                    amount={150.00}
+                    amount= {totalBalance}
                     footerlabel="atualizado com base nas entradas e saídas"
                     icon="dollar"
                     color= "#4E41F0"
                 />
                 <WalletBox
                     title="Entradas"
-                    amount={5000.00}
+                    amount={totalGains}
                     footerlabel="atualizado com base nas entradas e saídas"
                     icon="arrowUp"
                     color= "#F7931B"
                 />
                 <WalletBox
                     title="Saídas"
-                    amount={4850.00}
+                    amount={totalExpenses}
                     footerlabel="atualizado com base nas entradas e saídas"
                     icon="arrowDown"
                     color= "#E44C4E"
