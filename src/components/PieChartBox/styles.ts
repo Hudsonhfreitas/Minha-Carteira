@@ -44,12 +44,10 @@ export const Legend = styled.li<ILegendProps>`
     display: flex;
     align-items: center;
     margin-bottom: 7px;
-    
     div {
-        font-size: 18px;
+        font-size: 15px;
         background-color: ${props => props.color};
-        width: 40px;
-        height: 40px;
+        padding: 10px 5px;
         border-radius: 3px;
         display: flex;
         align-items: center;
