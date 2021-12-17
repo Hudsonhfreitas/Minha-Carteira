@@ -6,7 +6,6 @@ interface ILegendProps {
 
 export const ChartContainer = styled.div`
     height: 360px;
-    flex: 1;
 `
 export const Header = styled.header`
     width: 100%;
