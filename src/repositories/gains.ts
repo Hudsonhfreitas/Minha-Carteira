@@ -8,4 +8,4 @@ export default [
   { "description": "Salário",     "amount": "2500.18", "type": "entrada", "frequency": "recorrente", "date": "2021-04-10" }, 
   { "description": "Salário",     "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2021-05-10" }, 
   { "description": "Salário",     "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2021-06-10" }, 
-  { "description": "Salário",     "amount": "2500.00", "type": "entrada", "frequency": "recorrente", "date": "2021-07-10" }]
+  { "description": "Salário",     "amount": "2500.00", "type": "entrada", "frequency": "recorrente", "date": "2022-01-1" }]

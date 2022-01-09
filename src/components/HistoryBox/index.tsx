@@ -7,6 +7,8 @@ import {
     Legend
 } from './styles';
 
+import formatCurrency from '../../utils/formatCurrency';
+
 import {
     ResponsiveContainer,
     LineChart,
@@ -48,7 +50,7 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
                 <LineChart data={data} margin={{top: 5, right: 20, left: 5, bottom: 5}}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#cecece" />
                     <XAxis dataKey="month" stroke="#cecece" />
-                    <Tooltip />
+                    <Tooltip formatter={(value: number) => formatCurrency(Number(value))}/>
                     <Line 
                     type="monotone"
                     dataKey="amountEntry"

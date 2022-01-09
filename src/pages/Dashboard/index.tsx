@@ -41,19 +41,23 @@ const Dashboard: React.FC = () => {
         [...expenses, ...gains].forEach(item => {
             const date = new Date(item.date)
             const year = date.getFullYear()
-
+            
             if(!uniqueYears.includes(year)) {
                 uniqueYears.push(year)
             }
         });
 
         return uniqueYears.map( year => {
+
             return {
                 value: year,
                 label: year,
             }
         })
+
     }, []);
+
+    
 
     const totalExpenses = useMemo(() => {
         let total: number = 0;
