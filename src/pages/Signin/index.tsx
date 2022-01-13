@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Logo, Form, FormTitle} from './styles'
 
 import LogoImg from '../../assets/logo.svg';
+import Input from "../../components/Input";
+import Button from "../../components/Button";
 
 const SignIn: React.FC = () => {
     return (
@@ -10,11 +12,11 @@ const SignIn: React.FC = () => {
                 <img src={LogoImg} alt="Minha Carteira" />
                 <h2>Minha Carteira</h2>
             </Logo>
-            <Form>
+            <Form >
                 <FormTitle>Entrar</FormTitle>
-                <input type="text"></input>
-                <input type="password"></input>
-                <button type="submit">Acessar</button>
+                <Input type="email" placeholder="e-mail" required></Input>
+                <Input type="password" placeholder="senha" required></Input>
+                <Button type="submit">Acessar</Button>
             </Form>
         </Container>
     );
