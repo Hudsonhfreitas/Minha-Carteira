@@ -15,3 +15,10 @@ O app minha carteira permite que você gerencie melhor suas finanças te dando u
 - TypeScript
 - Styled Components
 - React-router-dom
+
+## Instalação 
+
+- git clone
+- npm install 
+- email: teste@teste.com
+- senha: 123
