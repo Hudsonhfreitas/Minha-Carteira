@@ -1,9 +1,14 @@
 import React from 'react';
-import { Container, Header, LogoImg, MenuContainer, MenuItemLink, Title } from './styles';
+import { Container, Header, LogoImg, MenuContainer, MenuItemLink, Title, MenuItemButton } from './styles';
 import logoImg from '../../assets/logo.svg';
 import {MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp} from 'react-icons/md';
 
+import { useAuth } from '../../hooks/auth';
+
 const Aside: React.FC = () => {
+
+  const {signOut} = useAuth()
+  
   return (
     <Container>
         <Header>
@@ -12,10 +17,10 @@ const Aside: React.FC = () => {
         </Header>
 
         <MenuContainer>
-          <MenuItemLink href="/"><MdDashboard/>Dashboard</MenuItemLink>
-          <MenuItemLink href="/list/entry-balance"><MdArrowDownward />Entradas</MenuItemLink>
-          <MenuItemLink href="/list/exit-balance"><MdArrowUpward />Saídas</MenuItemLink>
-          <MenuItemLink href="#"><MdExitToApp />Sair</MenuItemLink>
+          <MenuItemLink to="/"><MdDashboard/>Dashboard</MenuItemLink>
+          <MenuItemLink to="/list/entry-balance"><MdArrowDownward />Entradas</MenuItemLink>
+          <MenuItemLink to="/list/exit-balance"><MdArrowUpward />Saídas</MenuItemLink>
+          <MenuItemButton as="a" onClick={signOut}><MdExitToApp />Sair</MenuItemButton>
         </MenuContainer>
     </Container>
   );

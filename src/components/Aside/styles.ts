@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     grid-area: AS;
@@ -30,7 +31,7 @@ export const MenuContainer = styled.nav`
     flex-direction: column;
 `;
 
-export const MenuItemLink= styled.a`
+export const MenuItemLink= styled(Link)`
     display: flex;
     align-items: center;
     color: ${props => props.theme.color.info};
@@ -47,4 +48,24 @@ export const MenuItemLink= styled.a`
         margin-right: 5px;
     }
 `;
+
+export const MenuItemButton = styled.button`
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: ${props => props.theme.color.info};
+    text-decoration: none;
+    transition: opacity .3s;
+    cursor: pointer;
+    &:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    &:hover {
+        opacity: .7;
+    }
+    > svg {
+        font-size: 18px;
+        margin-right: 5px;
+    }
+`
 
