@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, Children} from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 interface IAuthContext {
     logged: boolean;
