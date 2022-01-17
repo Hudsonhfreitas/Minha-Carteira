@@ -24,10 +24,3 @@ export const Welcome = styled.h3`
 export const UserName = styled.span`
     
 `;
-
-export const Toggle = styled(ToggleComponent)`
-border: 1px solid red !important;
-    @media(max-width: 600px) {
-        display: none;
-    }
-`

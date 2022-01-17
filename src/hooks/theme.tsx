@@ -5,7 +5,7 @@ import light from '../styles/themes/light';
 
 
 interface IThemeContext {
-    toogleTheme(): void;
+    toggleTheme(): void;
     theme: ITheme;
 }
 
@@ -38,7 +38,7 @@ const ThemeProvider: React.FC = ({ children }) => {
         return themeSaved ? JSON.parse(themeSaved) : dark
     });
 
-    const toogleTheme = () => {
+    const toggleTheme = () => {
         if(theme.title === 'dark') {
             setTheme(light)
             localStorage.setItem('@minha-carteira:theme', JSON.stringify(light))
@@ -49,7 +49,7 @@ const ThemeProvider: React.FC = ({ children }) => {
     }
 
     return (
-        <ThemeContext.Provider value={{toogleTheme, theme}}>
+        <ThemeContext.Provider value={{toggleTheme, theme}}>
             {children}
         </ThemeContext.Provider>
     )
