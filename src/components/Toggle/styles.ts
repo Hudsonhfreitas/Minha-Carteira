@@ -4,6 +4,11 @@ import Switch, { ReactSwitchProps } from 'react-switch';
 export const Container = styled.div`
     display: flex;
     align-items: center;
+    @media(max-width: 600px) {
+        &.hidden {
+            display: none;
+        }
+    }
 `;
 
 export const ToggleLabel = styled.span`

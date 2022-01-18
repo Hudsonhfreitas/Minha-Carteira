@@ -71,6 +71,7 @@ const Aside: React.FC = () => {
             labelLeft='Light'
             labelRight='Dark'
             checked={darkTheme}
+            className=""
             onChange={handleChangeTheme} 
           />
         </ThemeToggleFooter>

@@ -5,12 +5,13 @@ interface IToogleProps {
   labelLeft: string;
   labelRight: string;
   checked: boolean;
+  className: string;
   onChange(): void;
 }
 
-const Toggle: React.FC<IToogleProps> = ({labelLeft, labelRight, checked, onChange}) => {
+const Toggle: React.FC<IToogleProps> = ({ className, labelLeft, labelRight, checked, onChange }) => {
   return (
-    <Container>
+    <Container className={className}>
         <ToggleLabel>{labelLeft}</ToggleLabel>
         <ToggleSelector
             checked={checked}

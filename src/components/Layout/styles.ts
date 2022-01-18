@@ -8,6 +8,7 @@ export const Grid = styled.div`
     'AS MH'
     'AS CT';
     height: 100vh;
+    min-width: 315px;
 
     @media(max-width: 600px) {
         grid-template-columns: 100%;
