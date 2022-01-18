@@ -21,7 +21,7 @@ export const Container = styled.div<IContainerProps>`
         padding-left: 20px;
         position: fixed;
         z-index: 2;
-        width: 200px;
+        width: 180px;
         height: ${props => props.menuIsOpen ? '100vh' : '70px'};
         overflow: hidden;
         ${props => !props.menuIsOpen && css`
